@@ -1,10 +1,11 @@
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import BouquetPage from './pages/BouquetPage';
 import CactusPage from './pages/CactusPage';
 import SunflowerPage from './pages/SunflowerPage';
-import OrchidPage from './pages/OrchidPage';
-import DaisyPage from './pages/DaisyPage';
+
+import ChatPage from './pages/ChatPage';
 import './App.css';
 import './Styles/footer.css';
 
@@ -18,8 +19,8 @@ function App() {
             <Route path="/bouquet" element={<BouquetPage />} />
             <Route path="/cactus" element={<CactusPage />} />
             <Route path="/sunflower" element={<SunflowerPage />} />
-            <Route path="/orchid" element={<OrchidPage />} />
-            <Route path="/daisy" element={<DaisyPage />} />
+            <Route path="/ChatPage" element={<ChatPage />} />
+         
           </Routes>
         </div>
       </div>

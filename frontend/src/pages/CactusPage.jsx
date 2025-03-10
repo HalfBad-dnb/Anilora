@@ -19,7 +19,7 @@ const socialLinks = [
     id: 3,
     name: "Private Chat",
     text: "Chat with us privately anytime!",
-    url: "/chat", // Adjust to external chat link if needed (e.g., WhatsApp)
+    url: "/chatPage", // Adjust to external chat link if needed (e.g., WhatsApp)
     image: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/messenger.svg",
   },
 ];

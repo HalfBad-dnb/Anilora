@@ -5,6 +5,7 @@ const flowerTabs = [
   { id: 1, name: "Mano geliu pasaulis", image: "/images/a1.jpg", path: "/bouquet" },
   { id: 2, name: "Susisiekime", image: "/images/a2.jpg", path: "/cactus" },
   { id: 3, name: "Apie mane", image: "/images/a3.jpg", path: "/sunflower" },
+  { id: 4, name: "Chat", image: "/images/a3.jpg", path: "/ChatPage" },
 ];
 
 const FlowerMenu = () => {
