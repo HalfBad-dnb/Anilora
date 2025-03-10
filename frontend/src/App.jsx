@@ -5,15 +5,13 @@ import CactusPage from './pages/CactusPage';
 import SunflowerPage from './pages/SunflowerPage';
 import OrchidPage from './pages/OrchidPage';
 import DaisyPage from './pages/DaisyPage';
-// Remove FlowerMenu import here
-// import FlowerMenu from './pages/FlowerMenu';
-// Remove this line if Footer is not needed
-// import Footer from './pages/Footer';
+import './App.css';
+import './Styles/footer.css';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-r from-green-100 to-teal-200 flex flex-col">
+      <div className="min-h-screen bg-gradient-to-r from-green-100 to-teal-300 flex flex-col">
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -24,9 +22,6 @@ function App() {
             <Route path="/daisy" element={<DaisyPage />} />
           </Routes>
         </div>
-
-        {/* If you don't need Footer, simply remove this section */}
-        {/* <Footer /> */}
       </div>
     </Router>
   );

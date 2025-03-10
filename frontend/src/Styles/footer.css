@@ -1,0 +1,12 @@
+/* Footer Style */
+.footer {
+    background-color: #d3526e; /* Soft pink background */
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Centers the footer content horizontally */
+    align-items: center; /* Centers the content vertically */
+    text-align: center; /* Centers the text */
+    color: red; /* Red text color */
+    font-size: 1.2rem;
+    font-weight: 600;
+  }

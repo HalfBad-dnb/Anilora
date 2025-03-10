@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <!-- Background with subtle texture -->
+  <rect width="400" height="200" fill="#FFFFFF"/>
+  <pattern id="subtlePattern" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="scale(2)">
+    <rect width="10" height="10" fill="#FAFAFA"/>
+    <path d="M0 0L10 10M10 0L0 10" stroke="#F0F0F0" stroke-width="0.5"/>
+  </pattern>
+  <rect width="400" height="200" fill="url(#subtlePattern)" opacity="0.3"/>
+  
+  <!-- Luxurious outer border -->
+  <rect x="10" y="10" width="380" height="180" fill="none" stroke="url(#borderGradient)" stroke-width="1" rx="5" ry="5"/>
+  
+  <!-- Decorative corners -->
+  <path d="M15 15 L35 15 L35 20 L20 20 L20 35 L15 35 Z" fill="url(#goldGradient)"/>
+  <path d="M385 15 L365 15 L365 20 L380 20 L380 35 L385 35 Z" fill="url(#goldGradient)"/>
+  <path d="M15 185 L35 185 L35 180 L20 180 L20 165 L15 165 Z" fill="url(#goldGradient)"/>
+  <path d="M385 185 L365 185 L365 180 L380 180 L380 165 L385 165 Z" fill="url(#goldGradient)"/>
+  
+  <!-- Elegant text with custom spacing - centered -->
+  <text x="200" y="105" font-family="Didot, serif" font-weight="normal" font-size="42" fill="url(#textGradient)" letter-spacing="4" text-anchor="middle">ANILORA</text>
+  
+  <!-- Decorative divider - centered -->
+  <line x1="100" y1="120" x2="300" y2="120" stroke="url(#goldGradient)" stroke-width="0.75"/>
+  <circle cx="100" cy="120" r="1.5" fill="url(#goldGradient)"/>
+  <circle cx="300" cy="120" r="1.5" fill="url(#goldGradient)"/>
+  <circle cx="200" cy="120" r="2" fill="url(#goldGradient)"/>
+  
+  <!-- Est. Year - centered and golden -->
+  <text x="200" y="140" font-family="Didot, serif" font-weight="normal" font-size="10" fill="url(#goldGradient)" letter-spacing="2" text-anchor="middle">EST. 2025</text>
+  
+  <!-- Gradients definitions -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#F9DF74"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+    
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#F9DF74" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.6"/>
+    </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="100%" stop-color="#333333"/>
+    </linearGradient>
+  </defs>
+</svg>

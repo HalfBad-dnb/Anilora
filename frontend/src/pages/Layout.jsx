@@ -1,23 +1,30 @@
 import FlowerMenu from './FlowerMenu';
 import PropTypes from 'prop-types';
+import '../Styles/footer.css';
+
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="layout relative">
+      {/* FlowerMenu */}
       <FlowerMenu /> {/* FlowerMenu is part of the layout */}
 
+      
       {/* Main Content Section */}
-      <div className="py-8 px-4 max-w-7xl mx-auto">
+      <div className="content py-8 px-4 max-w-7xl mx-auto">
         {children} {/* Render child components here */}
       </div>
 
-      {/* You can add a footer here if needed */}
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2025 Anilora Flower Shop. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
+
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
-

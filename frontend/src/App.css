@@ -21,24 +21,42 @@
   box-sizing: border-box;
 }
 
-/* Ensure the body and html take up full height */
-html, body {
-  height: 100%;
-  font-family: 'Lora', serif; /* Elegant serif for body text */
-  background-color: #f4f4f4;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+/* Base text style with golden tone */
+html, body, h1, h2, h3, p, button, a {
+  font-family: 'Virnature', cursive;
+  color: #d4af37; /* Softer golden tone */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for premium feel */
 }
+
+
 
 /* Ensure the root element takes up the full height */
 #root {
   height: 100%;
 }
 
-/* Fullscreen Hero Section (Anilora) */
+/* Layout Container */
+.layout {
+  background-color: #ed82d1; /* Soft pink */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Section */
+.content {
+  background-color: #ed82d1; /* Soft pink */
+  flex: 1;
+}
+
+/* Container for Home page */
+.container {
+  background-color: #ed82d1; /* Soft pink */
+}
+
+/* Fullscreen Hero Section */
 .hero {
-  background-color: #ffffff;
+  background-color: rgba(255, 193, 204, 0.7); /* Semi-transparent soft pink */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -46,50 +64,169 @@ html, body {
   align-items: center;
   padding: 0;
   border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Premium shadow effect */
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Add background image with parallax effect */
+  background-image: url('a1.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero h1 {
   font-size: 4rem;
-  font-weight: 400;
-  font-family: 'Virnature', cursive; /* Local floral font */
-  color: #2d6a4f;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 20% shadow */
   animation: fadeInBlur 1s ease-in-out forwards, glowing 4s ease-in-out 1s forwards;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #4f4f4f;
-  font-family: 'Lora', serif; /* Google Font */
-  animation: fadeIn 2s ease-in-out 0.5s;
+  backdrop-filter: blur(3px); /* Add blur behind text */
+  padding: 10px 20px;
+  border-radius: 12px;
+  background-color: rgba(255, 193, 204, 0.4); /* Semi-transparent pink */
 }
 
 /* Geliu Specialiste Section */
 .geliu-specialiste {
-  background-color: #f4f4f4;
+  background-color: #f8b8c6; /* Soft pink */
   padding: 40px 20px;
   text-align: center;
+  position: relative;
+}
+
+/* Add background image with parallax for geliu-specialiste */
+.geliu-specialiste::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('a2.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3; /* Subtle background */
+  z-index: 0;
+}
+
+.geliu-specialiste h2,
+.geliu-specialiste p {
+  position: relative;
+  z-index: 1;
+  padding: 15px;
+  background-color: rgba(248, 184, 198, 0.7); /* Semi-transparent pink */
+  display: inline-block;
+  border-radius: 12px;
 }
 
 .geliu-specialiste h2 {
   font-size: 2.5rem;
-  font-family: 'Sacramento', cursive;
-  color: #2d6a4f;
-  margin-bottom: 20px;
   animation: fadeIn 2s ease-in-out;
 }
 
 .geliu-specialiste p {
   font-size: 1.2rem;
-  color: #4f4f4f;
-  font-family: 'Lora', serif;
   animation: fadeIn 2s ease-in-out 0.5s;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
-/* Flower Cards Section */
+/* Flower Tabs Section */
+.tabs {
+  background-color: #f8b8c6; /* Soft pink */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 24px; /* Slightly larger gap for better spacing */
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+}
+
+.tab-item {
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-item:hover {
+  transform: scale(1.05);
+}
+
+.tab-item img {
+  width: 80px; /* Matches w-20 */
+  height: 80px; /* Matches h-20 */
+  object-fit: cover;
+  border-radius: 50%; /* Matches rounded-full */
+  border: 2px solid #90ee90; /* Light green border */
+  transition: all 0.3s ease;
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+.tab-item:hover img {
+  border-color: #77dd77; /* Darker light green on hover */
+  transform: rotate(5deg); /* Slight rotation on hover */
+  filter: brightness(1.2) contrast(1.1); /* Enhanced brightness on hover */
+}
+
+/* Add shine effect on hover */
+.tab-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(30deg);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.tab-item:hover::before {
+  transform: translateX(300%) rotate(30deg);
+}
+
+/* Flower Tab Text */
+.flower-tab-text {
+  margin-top: 8px; /* Matches mt-2 */
+  font-size: 1.5rem; /* Bigger text (24px) */
+  color: #ff4040; /* Bright red for visibility */
+  font-weight: 600; /* Slightly bolder */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Maintain premium shadow */
+  transition: color 0.3s ease;
+}
+
+.tab-item:hover .flower-tab-text {
+  color: #e63939; /* Slightly darker red on hover */
+}
+
+/* Flower Cards Section with a3.jpg as background */
+.cards-container {
+  position: relative;
+  background-image: url('a3.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px 20px;
+}
+
+/* Add overlay for better contrast */
+.cards-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 184, 198, 0.7); /* Semi-transparent pink */
+  z-index: 1;
+}
+
 .cards {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
@@ -99,16 +236,36 @@ html, body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: rgba(255, 193, 204, 0.8); /* Semi-transparent light pink */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px); /* Glass effect */
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(144, 238, 144, 0.5); /* Light green shadow for hover */
+}
+
+.card:hover::before {
+  transform: translate(200%, 200%) rotate(45deg);
 }
 
 .card img {
@@ -117,113 +274,32 @@ html, body {
   object-fit: cover;
 }
 
-.card h2 {
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
   font-size: 1.5rem;
-  color: #2d6a4f;
-  padding: 20px;
-  text-align: center;
-  font-family: 'Lora', serif;
+  font-weight: bold;
+  color: #ff4040;
+  margin-bottom: 15px;
 }
 
-/* Footer */
-footer {
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 40px;
-}
-
-footer p {
-  color: #4f4f4f;
+.card-description {
   font-size: 1rem;
-  font-family: 'Lora', serif;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-/* Ensure body and html fill the entire height */
-body, html {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+.card-price {
+  font-size: 1.2rem;
+  color: #e63946;
+  font-weight: bold;
 }
 
-footer {
-  margin-top: auto;
-}
-
-/* Fade-in animation for hero section */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Glowing effect for Anilora */
-.anilora-title {
-  font-family: 'Virnature', cursive;
-  font-size: 4rem;
-  color: #2d6a4f;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 20% shadow */
-  filter: blur(5px); /* Start with blur */
-  animation: fadeInBlur 1s ease-in-out forwards, glowing 4s ease-in-out 1s forwards;
-}
-
-@keyframes fadeInBlur {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0px);
-  }
-}
-
-/* Glowing effect for Anilora */
-.anilora-title {
-  font-family: 'Virnature', cursive;
-  font-size: 4rem;
-  color: #2d6a4f;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 20% shadow */
-  filter: blur(5px); /* Start with blur */
-  animation: fadeInBlur 1s ease-in-out 1s forwards, glowing 4s ease-in-out 2s forwards; /* Added 1s delay to fadeInBlur, 2s for glowing */
-}
-
-@keyframes fadeInBlur {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0px);
-  }
-}
-
-/* Fade-in effect */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Sticky title when scrolled past the tabs */
-.sticky-title {
-  position: sticky;
-  top: 0;
-  background-color: white; /* Optional: add background color to cover content behind */
-  z-index: 10; /* Make sure the titles stay above other elements */
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+/* Add hover effect for each card */
+.card:hover .card-body {
+  background-color: rgba(248, 184, 198, 0.9);
+  border-radius: 12px;
 }
