@@ -1,11 +1,8 @@
-
 import PropTypes from 'prop-types'; // Import PropTypes
 
 const MessageBubble = ({ message, isSent }) => {
   return (
-    <div
-      className={`message-bubble ${isSent ? 'sent' : 'received'}`}
-    >
+    <div className={`message-bubble ${isSent ? 'sent' : 'received'}`}>
       {message}
     </div>
   );

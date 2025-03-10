@@ -1,4 +1,4 @@
-/* Add Google Fonts for floral look */
+/* Base styles */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Sacramento&display=swap');
 
 /* Define local font */
@@ -21,14 +21,12 @@
   box-sizing: border-box;
 }
 
-/* Base text style with golden tone */
+/* Base text style */
 html, body, h1, h2, h3, p, button, a {
   font-family: 'Virnature', cursive;
-  color: #d4af37; /* Softer golden tone */
+  color: #d4af37; /* Gold color */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for premium feel */
 }
-
-
 
 /* Ensure the root element takes up the full height */
 #root {
@@ -37,7 +35,7 @@ html, body, h1, h2, h3, p, button, a {
 
 /* Layout Container */
 .layout {
-  background-color: #ed82d1; /* Soft pink */
+  background-color: #000000; /* Black background */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,18 +43,23 @@ html, body, h1, h2, h3, p, button, a {
 
 /* Main Content Section */
 .content {
-  background-color: #ed82d1; /* Soft pink */
+  background-color: #000000; /* Black background */
   flex: 1;
 }
 
 /* Container for Home page */
 .container {
-  background-color: #ed82d1; /* Soft pink */
+  background-color: #000000; /* Black background */
 }
 
 /* Fullscreen Hero Section */
 .hero {
-  background-color: rgba(255, 193, 204, 0.7); /* Semi-transparent soft pink */
+  background-color: #000000; /* Black background */
+  background-image: linear-gradient(180deg, #000000, #8B0000); /* Black fading to dark red */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -64,37 +67,30 @@ html, body, h1, h2, h3, p, button, a {
   align-items: center;
   padding: 0;
   border-radius: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Premium shadow effect */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   text-align: center;
   position: relative;
   overflow: hidden;
-  
-  /* Add background image with parallax effect */
-  background-image: url('a1.jpg');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
+/* Hero Section Heading */
 .hero h1 {
   font-size: 4rem;
-  animation: fadeInBlur 1s ease-in-out forwards, glowing 4s ease-in-out 1s forwards;
-  backdrop-filter: blur(3px); /* Add blur behind text */
+  color: #d4af37; /* Gold color */
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
   padding: 10px 20px;
   border-radius: 12px;
-  background-color: rgba(255, 193, 204, 0.4); /* Semi-transparent pink */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
 }
 
 /* Geliu Specialiste Section */
 .geliu-specialiste {
-  background-color: #f8b8c6; /* Soft pink */
+  background-color: #000000; /* Black background */
   padding: 40px 20px;
   text-align: center;
   position: relative;
 }
 
-/* Add background image with parallax for geliu-specialiste */
 .geliu-specialiste::before {
   content: '';
   position: absolute;
@@ -116,92 +112,99 @@ html, body, h1, h2, h3, p, button, a {
   position: relative;
   z-index: 1;
   padding: 15px;
-  background-color: rgba(248, 184, 198, 0.7); /* Semi-transparent pink */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
   display: inline-block;
   border-radius: 12px;
 }
 
 .geliu-specialiste h2 {
   font-size: 2.5rem;
-  animation: fadeIn 2s ease-in-out;
+  color: #d4af37; /* Gold color */
 }
 
 .geliu-specialiste p {
   font-size: 1.2rem;
-  animation: fadeIn 2s ease-in-out 0.5s;
+  color: #d4af37; /* Gold color */
   max-width: 800px;
   margin: 20px auto;
 }
 
 /* Flower Tabs Section */
 .tabs {
-  background-color: #f8b8c6; /* Soft pink */
+  background-color: #000000; /* Black background */
   padding: 20px;
   display: flex;
   justify-content: center;
-  gap: 24px; /* Slightly larger gap for better spacing */
-  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .tab-item {
-  transition: transform 0.5s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 12px; /* Rounded corners for tabs */
+  padding: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeIn 1s ease-out forwards; /* Animation on load */
+  opacity: 0; /* Initially hidden */
 }
 
+/* Tab hover effect */
 .tab-item:hover {
-  transform: scale(1.05);
-}
-
-.tab-item img {
-  width: 80px; /* Matches w-20 */
-  height: 80px; /* Matches h-20 */
-  object-fit: cover;
-  border-radius: 50%; /* Matches rounded-full */
-  border: 2px solid #90ee90; /* Light green border */
-  transition: all 0.3s ease;
-  filter: brightness(1.1); /* Slightly brighten the image */
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Subtle shadow effect */
 }
 
 .tab-item:hover img {
-  border-color: #77dd77; /* Darker light green on hover */
-  transform: rotate(5deg); /* Slight rotation on hover */
-  filter: brightness(1.2) contrast(1.1); /* Enhanced brightness on hover */
+  border-color: #d4af37; /* Gold border on hover */
+  transform: rotate(5deg); /* Slightly rotate image */
 }
 
-/* Add shine effect on hover */
-.tab-item::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 20px;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: rotate(30deg);
-  transition: transform 0.7s ease;
-  pointer-events: none;
+/* Fade-in animation for tab items */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
 }
 
-.tab-item:hover::before {
-  transform: translateX(300%) rotate(30deg);
+.tab-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #8B0000; /* Dark red border */
+  transition: all 0.3s ease;
 }
 
-/* Flower Tab Text */
-.flower-tab-text {
-  margin-top: 8px; /* Matches mt-2 */
-  font-size: 1.5rem; /* Bigger text (24px) */
-  color: #ff4040; /* Bright red for visibility */
-  font-weight: 600; /* Slightly bolder */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Maintain premium shadow */
-  transition: color 0.3s ease;
+/* Text animation for tab-item */
+.tab-item .flower-tab-text {
+  margin-top: 8px;
+  font-size: 1.5rem;
+  color: #d4af37; /* Gold color */
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  animation: textFadeIn 1s ease-out 0.5s forwards; /* Animation for text */
+  opacity: 0; /* Initially hidden */
 }
 
-.tab-item:hover .flower-tab-text {
-  color: #e63939; /* Slightly darker red on hover */
+/* Fade-in animation for text */
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
 }
 
-/* Flower Cards Section with a3.jpg as background */
+/* Flower Cards Section */
 .cards-container {
   position: relative;
   background-image: url('a3.jpg');
@@ -212,7 +215,6 @@ html, body, h1, h2, h3, p, button, a {
   padding: 40px 20px;
 }
 
-/* Add overlay for better contrast */
 .cards-container::before {
   content: '';
   position: absolute;
@@ -220,7 +222,7 @@ html, body, h1, h2, h3, p, button, a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(248, 184, 198, 0.7); /* Semi-transparent pink */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
   z-index: 1;
 }
 
@@ -236,36 +238,12 @@ html, body, h1, h2, h3, p, button, a {
 }
 
 .card {
-  background-color: rgba(255, 193, 204, 0.8); /* Semi-transparent light pink */
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(5px); /* Glass effect */
   position: relative;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-  transform: rotate(45deg);
-  transition: transform 0.6s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.card:hover {
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 15px 30px rgba(144, 238, 144, 0.5); /* Light green shadow for hover */
-}
-
-.card:hover::before {
-  transform: translate(200%, 200%) rotate(45deg);
 }
 
 .card img {
@@ -282,24 +260,94 @@ html, body, h1, h2, h3, p, button, a {
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ff4040;
+  color: #d4af37; /* Gold color */
   margin-bottom: 15px;
 }
 
 .card-description {
   font-size: 1rem;
-  color: #333;
+  color: #d4af37; /* Gold color */
   margin-bottom: 10px;
 }
 
 .card-price {
   font-size: 1.2rem;
-  color: #e63946;
+  color: #8B0000; /* Dark red */
   font-weight: bold;
 }
 
-/* Add hover effect for each card */
-.card:hover .card-body {
-  background-color: rgba(248, 184, 198, 0.9);
-  border-radius: 12px;
+.card:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Fade from black to dark red animation */
+@keyframes fadeFromBlackToRed {
+  0% {
+    background-color: #000000; /* Black */
+  }
+  100% {
+    background-color: #8B0000; /* Dark Red */
+  }
+}
+
+/* Chat Styles */
+.chat-container {
+  background-color: #121212; /* Dark background for chat */
+  color: #d4af37; /* Gold text */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  overflow-y: scroll;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.chat-message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #333; /* Dark background for messages */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.chat-message.sent {
+  background-color: #8B0000; /* Dark red for sent messages */
+  text-align: right;
+}
+
+.chat-message.received {
+  background-color: #444; /* Slightly lighter dark background for received */
+  text-align: left;
+}
+
+.chat-input-container {
+  display: flex;
+  margin-top: auto;
+}
+
+.chat-input {
+  background-color: #222; /* Dark input box */
+  color: #d4af37; /* Gold text */
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.chat-send-button {
+  background-color: #8B0000; /* Dark red button */
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.chat-send-button:hover {
+  background-color: #b22222; /* Lighter red on hover */
 }
