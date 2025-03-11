@@ -1,14 +1,41 @@
 #!/bin/bash
 
-# Authenticate with Google Cloud (if not already done)
-gcloud auth login
+# Set variables
+PROJECT_ID="anilora-453406"
 
-# Set your actual project ID (replace with your actual project ID if needed)
-PROJECT_ID="anilora"  # Make sure this is your actual Google Cloud project ID
-gcloud config set project $PROJECT_ID
 
-# Build and submit your Docker image
-gcloud builds submit --tag gcr.io/$PROJECT_ID/anilora-app .
 
-# Deploy to Cloud Run
-gcloud run deploy anilora-app --image gcr.io/$PROJECT_ID/anilora-app --platform managed --region us-central1 --allow-unauthenticated
+docker ps --filter "name=buildx_buildkit_friendly_germain0"
+
+docker ps -a --filter "name=buildx_buildkit_friendly_germain0"
+
+docker rm buildx_buildkit_friendly_germain0
+
+docker buildx create --name buildx_buildkit_friendly_germain0
+
+docker buildx use buildx_buildkit_friendly_germain0
+
+docker buildx inspect --bootstrap
+
+docker buildx build --platform linux/amd64,linux/arm64 -t gcr.io/$PROJECT_ID/iot-device-simulator:latest .
+
+docker push gcr.io/$PROJECT_ID/iot-device-simulator:latest
+
+gcloud run deploy iot-device-simulator --image gcr.io/$PROJECT_ID/iot-device-simulator:latest --platform managed --region us-central1 --allow-unauthenticated
+
+gcloud run services list --platform managed --region us-central1
+
+gcloud run services describe iot-device-simulator --platform managed --region us-central1
+
+gcloud run services update-traffic iot-device-simulator --platform managed --region us-central1 --to-latest
+
+
+
+
+
+
+
+
+
+
+
