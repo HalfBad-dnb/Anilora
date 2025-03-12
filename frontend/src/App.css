@@ -14,17 +14,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset margin and padding for better control */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* Base text style */
-html, body, h1, h2, h3, p, button, a {
-  font-family: 'Virnature', cursive;
-  color: #d4af37; /* Gold color */
+  font-family: 'Virnature', cursive; /* Default font for all elements */
+  color: #d4af37; /* Gold text */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for premium feel */
 }
 
@@ -47,12 +43,7 @@ html, body, h1, h2, h3, p, button, a {
   flex: 1;
 }
 
-/* Container for Home page */
-.container {
-  background-color: #000000; /* Black background */
-}
-
-/* Fullscreen Hero Section */
+/* Hero Section */
 .hero {
   background-color: #000000; /* Black background */
   background-image: linear-gradient(180deg, #000000, #8B0000); /* Black fading to dark red */
@@ -119,12 +110,10 @@ html, body, h1, h2, h3, p, button, a {
 
 .geliu-specialiste h2 {
   font-size: 2.5rem;
-  color: #d4af37; /* Gold color */
 }
 
 .geliu-specialiste p {
   font-size: 1.2rem;
-  color: #d4af37; /* Gold color */
   max-width: 800px;
   margin: 20px auto;
 }
@@ -142,34 +131,21 @@ html, body, h1, h2, h3, p, button, a {
 .tab-item {
   position: relative;
   overflow: hidden;
-  border-radius: 12px; /* Rounded corners for tabs */
+  border-radius: 12px;
   padding: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: fadeIn 1s ease-out forwards; /* Animation on load */
   opacity: 0; /* Initially hidden */
+  animation: fadeIn 1s ease-out forwards;
 }
 
-/* Tab hover effect */
 .tab-item:hover {
   transform: scale(1.05); /* Slightly scale up on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Subtle shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .tab-item:hover img {
   border-color: #d4af37; /* Gold border on hover */
   transform: rotate(5deg); /* Slightly rotate image */
-}
-
-/* Fade-in animation for tab items */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); /* Start from below */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* End at normal position */
-  }
 }
 
 .tab-item img {
@@ -181,26 +157,36 @@ html, body, h1, h2, h3, p, button, a {
   transition: all 0.3s ease;
 }
 
-/* Text animation for tab-item */
+/* Tab Text Animation */
 .tab-item .flower-tab-text {
   margin-top: 8px;
   font-size: 1.5rem;
-  color: #d4af37; /* Gold color */
   font-weight: 600;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   animation: textFadeIn 1s ease-out 0.5s forwards; /* Animation for text */
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
 }
 
-/* Fade-in animation for text */
-@keyframes textFadeIn {
+/* Fade-in Animations */
+@keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(10px); /* Start from below */
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* End at normal position */
+    transform: translateY(0);
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -234,11 +220,10 @@ html, body, h1, h2, h3, p, button, a {
   gap: 20px;
   margin-top: 40px;
   padding: 20px;
-  width: 100%;
 }
 
 .card {
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -260,13 +245,10 @@ html, body, h1, h2, h3, p, button, a {
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #d4af37; /* Gold color */
-  margin-bottom: 15px;
 }
 
 .card-description {
   font-size: 1rem;
-  color: #d4af37; /* Gold color */
   margin-bottom: 10px;
 }
 
@@ -281,20 +263,10 @@ html, body, h1, h2, h3, p, button, a {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Fade from black to dark red animation */
-@keyframes fadeFromBlackToRed {
-  0% {
-    background-color: #000000; /* Black */
-  }
-  100% {
-    background-color: #8B0000; /* Dark Red */
-  }
-}
-
 /* Chat Styles */
 .chat-container {
-  background-color: #121212; /* Dark background for chat */
-  color: #d4af37; /* Gold text */
+  background-color: #121212;
+  color: #d4af37;
   padding: 20px;
   border-radius: 8px;
   max-width: 600px;
@@ -310,17 +282,17 @@ html, body, h1, h2, h3, p, button, a {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #333; /* Dark background for messages */
+  background-color: #333;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .chat-message.sent {
-  background-color: #8B0000; /* Dark red for sent messages */
+  background-color: #8B0000;
   text-align: right;
 }
 
 .chat-message.received {
-  background-color: #444; /* Slightly lighter dark background for received */
+  background-color: #444;
   text-align: left;
 }
 
@@ -330,8 +302,8 @@ html, body, h1, h2, h3, p, button, a {
 }
 
 .chat-input {
-  background-color: #222; /* Dark input box */
-  color: #d4af37; /* Gold text */
+  background-color: #222;
+  color: #d4af37;
   border: none;
   border-radius: 8px;
   padding: 10px;
@@ -340,7 +312,7 @@ html, body, h1, h2, h3, p, button, a {
 }
 
 .chat-send-button {
-  background-color: #8B0000; /* Dark red button */
+  background-color: #8B0000;
   color: #fff;
   border: none;
   padding: 10px;
