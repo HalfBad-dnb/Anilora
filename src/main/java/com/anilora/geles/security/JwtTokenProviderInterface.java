@@ -1,6 +1,7 @@
 package com.anilora.geles.security;
 
 public interface JwtTokenProviderInterface {
-    boolean validateToken(String token);
+    String generateToken(String username);
     String getUsernameFromToken(String token);
+    boolean validateToken(String token);
 }

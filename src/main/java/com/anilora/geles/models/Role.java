@@ -1,24 +1,30 @@
 package com.anilora.geles.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Role {
 
-    private String username;
-    private String role;
+    @Id
+    private Long id;
 
-    public Role() {
+    private String name;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
     }
 
-    public Role(String username, String role) {
-        this.username = username;
-        this.role = role;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public String getRole() {
-        return role;
+    public void setName(String name) {
+        this.name = name;
     }
-
 }

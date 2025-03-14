@@ -1,38 +1,24 @@
 package com.anilora.geles.security;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import com.anilora.geles.models.User;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
 
-    private Long userId; // Add userId
-    private String username; // Username
-    private String password; // Password (if applicable)
-    private Collection<? extends GrantedAuthority> authorities; // User authorities, if needed
+    private final User user;
+    private final List<GrantedAuthority> authorities;
 
-    // Constructor to initialize user details
-    public CustomUserDetails(Long userId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.authorities = authorities;
-    }
-
-    // Getter for userId
-    public Long getUserId() {
-        return userId;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
-
-    @Override
-    public String getPassword() {
-        return this.password;
+    public CustomUserDetails(User user, List<String> roles) {
+        this.user = user;
+        this.authorities = roles.stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -41,22 +27,37 @@ public class CustomUserDetails implements UserDetails {
     }
 
     @Override
+    public String getPassword() {
+        return user.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return user.getUsername();
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return user.isAccountNonExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return user.isAccountNonLocked();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return user.isCredentialsNonExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.isEnabled();
+    }
+
+    // Added getUserId method to return the user's ID
+    public Long getUserId() {
+        return user.getId(); // Return the ID of the user
     }
 }

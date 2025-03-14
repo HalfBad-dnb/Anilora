@@ -26,4 +26,10 @@ public class AuthenticationService {
 
         return false; // Return false if user is not found or passwords don't match
     }
+
+    // Method for login (uses authenticateUser for validation)
+    public boolean login(String username, String password) {
+        // Call authenticateUser to check if the username and password are valid
+        return authenticateUser(username, password);
+    }
 }

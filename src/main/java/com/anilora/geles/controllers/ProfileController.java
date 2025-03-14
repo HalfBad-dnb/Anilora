@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/api/profile")
+@RestController("profileControllerV2")  // Rename the controller bean
+@RequestMapping("/profile")
 public class ProfileController {
 
     private final ProfileService profileService;

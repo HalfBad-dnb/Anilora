@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anilora.geles.services.UserService;
 import com.anilora.geles.models.User;
 import com.anilora.geles.models.ErrorResponse;
-import com.anilora.geles.exceptions.UserNotFoundException;  // Ensure this is imported
-import com.anilora.geles.security.CustomUserDetails;
+import com.anilora.geles.exceptions.UserNotFoundException;  
+import com.anilora.geles.security.CustomUserDetails; // Import CustomUserDetails, not CustomUserDetailsService
 
 @RestController
 @RequestMapping("/api/user")

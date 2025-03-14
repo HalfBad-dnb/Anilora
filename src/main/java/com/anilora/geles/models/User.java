@@ -1,52 +1,43 @@
 package com.anilora.geles.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import java.util.Date;
-
 @Entity
-@Table(name = "users")
-@Getter
-@Setter
+@Data // Lombok generates getters, setters, toString, equals, and hashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Size(min = 3, max = 50)
-    @Column(unique = true, nullable = false)
     private String username;
 
-    @NotBlank
-    @Email
-    @Column(unique = true, nullable = false)
-    private String email;
-
-    @Size(max = 255)
-    private String address;
-
-    @Size(max = 20)
-    private String phoneNumber;
-
-    @NotBlank
-    @Size(min = 8)
+    @JsonIgnore
+    @NotNull
+    @Size(min = 6)
     private String password;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, updatable = false)
-    private Date createdAt;
+    @NotNull
+    @Email
+    private String email;
 
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = new Date();
-    }
+    private String address;
+
+    @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
+    private String phoneNumber;
+
+    // Account status fields
+    private boolean enabled = true;
+    private boolean accountNonExpired = true;
+    private boolean accountNonLocked = true;
+    private boolean credentialsNonExpired = true;
+
+    // You can add custom methods or business logic here if needed
 }
